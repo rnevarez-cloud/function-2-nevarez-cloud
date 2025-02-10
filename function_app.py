@@ -11,14 +11,8 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
                      database_name="game_scores", 
                      container_name="scores_container",
                      connection="CosmosDbConnectionSetting")
-@app.cosmos_db_output(arg_name="outputDocument", 
-                     database_name="game_scores", 
-                     container_name="scores_container",
-                     create_if_not_exists=True,
-                     connection="CosmosDbConnectionSetting")
 
 def get_scores(inputDocument: func.DocumentList,
-                outputDocument: func.Out[func.Document],
                 req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
