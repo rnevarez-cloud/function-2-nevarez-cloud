@@ -41,6 +41,6 @@ def get_scores(inputDocument: func.DocumentList,
     )
 
     return func.HttpResponse(
-            f"{date_scores}",
+            json.dumps(date_scores),
             status_code=200
     )
